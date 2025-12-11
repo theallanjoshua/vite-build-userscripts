@@ -24,15 +24,13 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: Install pnpm
-        run: npm install -g pnpm@latest
+        run: npm install -g pnpm@latest npm@latest
 
       - name: Clean install dependencies
         run: pnpm install --frozen-lockfile
 
       - name: Increment patch version
         run: pnpm version patch --no-git-tag-version
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Commit version changes
         run: |
@@ -43,8 +41,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      # Use npm instead of pnpm to publish to avoid issues with npm registry authentication
       - name: Publish to npm
-        run: pnpm publish
+        run: npm publish
 
       # Ensure we push the version change only after a successful publish
       - name: Push version changes
