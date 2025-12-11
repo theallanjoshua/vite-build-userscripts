@@ -7,7 +7,7 @@ on:
 
 permissions:
   id-token: write  # Required for OIDC
-  contents: read
+  contents: write  # Grant write permissions to push changes
 
 jobs:
   publish:
@@ -23,7 +23,7 @@ jobs:
           node-version: 20
           registry-url: 'https://registry.npmjs.org'
 
-      - name: Install pnpm
+      - name: Install latest pnpm & npm
         run: npm install -g pnpm@latest npm@latest
 
       - name: Clean install dependencies
