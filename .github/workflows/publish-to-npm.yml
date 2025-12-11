@@ -1,0 +1,10 @@
+name: Publish to npm
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  call-reusable-workflow:
+    uses: theallanjoshua/ci-cd-workflows/.github/workflows/publish-pnpm-repo-to-npm-registry.yml@main
