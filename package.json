@@ -1,6 +1,6 @@
 {
 	"name": "vite-build-userscripts",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "Vends a vite based build tool to output userscripts for Monkey extensions(Tampermonkey, Greasemonkey,...)",
 	"author": "Allan Joshua",
 	"license": "MIT",
