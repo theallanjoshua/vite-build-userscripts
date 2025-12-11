@@ -1,0 +1,53 @@
+{
+	"name": "vite-build-userscripts",
+	"version": "0.0.1",
+	"description": "Vends a vite based build tool to output userscripts for Monkey extensions(Tampermonkey, Greasemonkey,...)",
+	"author": "Allan Joshua",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/theallanjoshua/vite-build-userscripts.git"
+	},
+	"homepage": "https://github.com/theallanjoshua/vite-build-userscripts#readme",
+	"bugs": {
+		"url": "https://github.com/theallanjoshua/vite-build-userscripts/issues"
+	},
+	"keywords": [
+		"userscript",
+		"userscripts",
+		"tampermonkey",
+		"greasemonkey",
+		"vite",
+		"vitejs",
+		"build tool"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"type": "module",
+	"files": [
+		"dist"
+	],
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"import": "./dist/index.js",
+			"types": "./dist/index.d.ts"
+		}
+	},
+	"scripts": {
+		"lint": "biome check",
+		"lint:fix": "biome format --write",
+		"build": "tsc && tsc-alias",
+		"prepublishOnly": "pnpm run lint && pnpm run build"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.1.3",
+		"tsc-alias": "^1.8.16",
+		"typescript": "~5.8.3"
+	},
+	"peerDependencies": {
+		"vite": "^7.0.0"
+	}
+}
